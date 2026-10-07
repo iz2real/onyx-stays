@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /app/
 Sitemap: https://onyxbeachhotel.com/sitemap.xml
