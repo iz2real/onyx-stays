@@ -62,11 +62,38 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
     <div class="brand">Onyx Beach Hotel · Canggu</div>
     <h1>Boutique hotel<br>in Canggu.</h1>
     <p>Suites and a rooftop penthouse around a pool in Padang Linjong, Canggu's quieter side, a few minutes from Echo Beach. Rooms from IDR 950k a night. Weekly and monthly rates available.</p>
-    <a class="btn" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20a%20room.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Book direct on WhatsApp</a>
-    <a class="btn ghost" href="#units">See rooms</a>
+    <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a>
+    <a class="btn ghost" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20a%20room.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp us</a>
   </div>
 </header>
 
+<section class="search" id="book">
+  <form id="bk" class="bk">
+    <label>Check-in<input type="date" name="in" required></label>
+    <label>Check-out<input type="date" name="out" required></label>
+    <label>Guests<select name="g"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+    <button class="btn" type="submit">See prices &amp; book</button>
+  </form>
+  <p class="note">Live availability and secure online payment. Minimum stay 2 nights. Staying 7+ nights? <a href="#rates">See weekly and monthly rates</a>.</p>
+</section>
+<script>
+(function(){
+  var f=document.getElementById('bk'), base="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr";
+  function iso(d){return d.toISOString().slice(0,10)}
+  var t=new Date(); t.setHours(12);
+  var a=new Date(t), b=new Date(t); b.setDate(b.getDate()+2);
+  f['in'].min=iso(a); f['in'].value=iso(a); f.out.min=iso(b); f.out.value=iso(b);
+  f['in'].addEventListener('change',function(){
+    var d=new Date(f['in'].value+'T12:00'); d.setDate(d.getDate()+2);
+    f.out.min=iso(d); if(f.out.value<iso(d)) f.out.value=iso(d);
+  });
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var q='checkin='+f['in'].value+'&checkout='+f.out.value+'&adults='+f.g.value;
+    location.href=base+(base.indexOf('?')<0?'?':'&')+q+'#'+q;
+  });
+})();
+</script>
 
 <section id="rates">
   <h2>Stay a night, a week or a month</h2>
@@ -104,7 +131,7 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
           <div><span class="lbl">Weekly</span><span class="amt">IDR 17.5M</span><span class="sub">(≈ US$1,050)</span></div>
           <div><span class="lbl">Monthly</span><span class="amt">IDR 55M</span><span class="sub">(≈ US$3,350)</span></div>
         </div>
-        <a class="btn" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20The%20Penthouse.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Check dates on WhatsApp</a>
+        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20The%20Penthouse.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
       </div>
     </article>
     <article class="unit" id="u203">
@@ -118,7 +145,7 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
           <div><span class="lbl">Weekly</span><span class="amt">IDR 7.5M</span><span class="sub">(≈ US$450)</span></div>
           <div><span class="lbl">Monthly</span><span class="amt">IDR 30M</span><span class="sub">(≈ US$1,800)</span></div>
         </div>
-        <a class="btn" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Deluxe%20Suite%20203.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Check dates on WhatsApp</a>
+        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Deluxe%20Suite%20203.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
       </div>
     </article>
     <article class="unit" id="u202">
@@ -132,7 +159,7 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
           <div><span class="lbl">Weekly</span><span class="amt">IDR 6.5M</span><span class="sub">(≈ US$390)</span></div>
           <div><span class="lbl">Monthly</span><span class="amt">IDR 24M</span><span class="sub">(≈ US$1,450)</span></div>
         </div>
-        <a class="btn" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20202.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Check dates on WhatsApp</a>
+        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20202.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
       </div>
     </article>
     <article class="unit" id="u302">
@@ -146,7 +173,7 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
           <div><span class="lbl">Weekly</span><span class="amt">IDR 6.5M</span><span class="sub">(≈ US$390)</span></div>
           <div><span class="lbl">Monthly</span><span class="amt">IDR 24M</span><span class="sub">(≈ US$1,450)</span></div>
         </div>
-        <a class="btn" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20302.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Check dates on WhatsApp</a>
+        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20302.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
       </div>
     </article>
     <article class="unit" id="u101">
@@ -160,7 +187,7 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
           <div><span class="lbl">Weekly</span><span class="amt">IDR 6M</span><span class="sub">(≈ US$360)</span></div>
           <div><span class="lbl">Monthly</span><span class="amt">IDR 20M</span><span class="sub">(≈ US$1,200)</span></div>
         </div>
-        <a class="btn" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20101.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Check dates on WhatsApp</a>
+        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20101.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
       </div>
     </article>
   </div>
@@ -174,7 +201,7 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
 <section>
   <h2>Good to know</h2>
   <details><summary>What's included?</summary><p>Wi-Fi, pool access and housekeeping. Ask us about electricity for monthly stays.</p></details>
-  <details><summary>How do I book?</summary><p>Message us on WhatsApp with your dates. We confirm availability, then take a deposit by bank transfer or card link to hold the room.</p></details>
+  <details><summary>How do I book?</summary><p>Tap Book now to see live availability and book online, or message us on WhatsApp with your dates.</p></details>
   <details><summary>Peak season?</summary><p>In December, July and August nightly rates are higher and monthly stays are +20%.</p></details>
   <details><summary>Minimum stay?</summary><p>2 nights. Prices shown are "from" rates and can be higher on weekends, holidays and in peak season. Send your dates for an exact price.</p></details>
   <details><summary>Weekly and monthly rates?</summary><p>Stay 7 nights or more and we offer the weekly rate; 30 nights or more, the monthly rate. Both are shown on each room above.</p></details>
