@@ -29,6 +29,15 @@ h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:.3em 0}
 .bk .btn{border:0;font-size:16px;cursor:pointer;min-height:46px}
 .note{color:var(--muted);font-size:14px;margin:10px 4px 0}.note a{color:var(--accent)}
 @media (max-width:760px){.bk{grid-template-columns:1fr 1fr}.bk .btn{grid-column:1/-1}}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 22px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+.stats b{display:block;font-size:clamp(22px,4vw,30px);color:var(--accent);line-height:1.1}.stats span{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 22px}
+.tiles figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.tiles img{height:240px}.tiles figcaption{padding:14px 16px;color:#333;font-size:15px}.tiles b{display:block;color:var(--ink);margin-bottom:2px}
+.map{margin-top:22px;border-radius:16px;overflow:hidden;border:1px solid var(--line);height:320px}.map iframe{border:0;width:100%;height:100%}
+.place .why{margin-top:0}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.stats div:last-child{grid-column:1/-1}.tiles{grid-template-columns:1fr}.tiles img{height:220px}.map{height:260px}}
 .btn.alt{background:#fff;color:var(--accent);border:1px solid var(--accent);margin-left:6px}
 .btn.ghost{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.6);margin-left:8px}
 section{max-width:1080px;margin:0 auto;padding:48px 20px}
@@ -105,14 +114,39 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
   </div>
 </section>
 
+<section class="place">
+  <h2>Canggu, on your doorstep</h2>
+  <p class="lead">We're on Jalan Padang Linjong, one of Canggu's favourite streets for cafés, restaurants, yoga and spas, a short ride from the surf at Echo Beach and Batu Bolong.</p>
+  <div class="stats">
+    <div><b>2.3 km</b><span>to Echo, Batu Bolong &amp; Canggu beaches</span></div>
+    <div><b>~6 min</b><span>to the beach by scooter or car</span></div>
+    <div><b>4.6★</b><span>on Google, 50 reviews</span></div>
+    <div><b>8.8/10</b><span>guest rating on Hotels.com</span></div>
+    <div><b>9 rooms</b><span>small, quiet and personal</span></div>
+  </div>
+  <div class="tiles">
+    <figure><img src="img/rooftop.jpg" alt="Rooftop jacuzzi deck at sunset, pool and garden below" loading="lazy"><figcaption><b>Rooftop sunsets</b>Watch the sky turn orange over Canggu's rooftops.</figcaption></figure>
+    <figure><img src="img/pool.jpg" alt="Pool at Onyx Beach Hotel" loading="lazy"><figcaption><b>Pool and green wall</b>A calm pool in a tropical garden, away from the main road traffic.</figcaption></figure>
+    <figure><img src="img/sunset.jpg" alt="Floor-to-ceiling windows at golden hour" loading="lazy"><figcaption><b>Floor-to-ceiling views</b>Bright, modern rooms with big windows and kitchens in most units.</figcaption></figure>
+  </div>
+  <div class="why">
+    <div><b>🌊 Beaches</b>Echo Beach, Batu Bolong and Canggu Beach for surf and sunsets; Pererenan just beyond.</div>
+    <div><b>🍽 Eat and drink</b>Cafés, restaurants and bars along Padang Linjong and nearby Batu Bolong.</div>
+    <div><b>🧘 Yoga and spa</b>Yoga studios and spas on our street, with more a few minutes away.</div>
+    <div><b>🛵 We sort the rest</b>Scooter hire, surf lessons, cooking classes, volcano treks and fast boats to Nusa and Gili. Just ask.</div>
+  </div>
+  <div class="map"><iframe title="Map: Onyx Beach Hotel, Canggu" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Onyx+Beach+Hotel,+Jl.+Canggu+Padang+Linjong+No.45x,+Canggu&amp;output=embed"></iframe></div>
+  <p class="note"><a href="https://www.google.com/maps/search/?api=1&amp;query=Onyx+Beach+Hotel+Canggu">Open in Google Maps</a> · Jl. Canggu Padang Linjong No.45x, Canggu, Badung, Bali 80351</p>
+</section>
+
 <section>
   <h2>Why book direct</h2>
-  <p class="lead">Same rooms as on the booking sites, straight from the owner.</p>
+  <p class="lead">Same rooms as on the booking sites, straight from us.</p>
   <div class="why">
-    <div><b>Straight to us</b>Message us on WhatsApp, get a quick answer and a clear price.</div>
-    <div><b>Live like a local</b>Kitchens in most units, desks to work from, fast Wi-Fi.</div>
-    <div><b>Pool and calm</b>A small, quiet building with a pool, away from the main Canggu traffic.</div>
-    <div><b>Close to everything</b>Cafés and restaurants nearby, Echo Beach a few minutes away.</div>
+    <div><b>Secure online booking</b>Live availability and payment through our booking system, confirmed instantly.</div>
+    <div><b>Weekly and monthly rates</b>Long-stay prices you won't find on the booking sites.</div>
+    <div><b>A real person</b>Questions before or during your stay? WhatsApp us and get a quick answer.</div>
+    <div><b>Local help</b>Scooters, surf lessons and trips arranged by our team.</div>
   </div>
 </section>
 
@@ -191,11 +225,6 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
       </div>
     </article>
   </div>
-</section>
-
-<section>
-  <h2>The building</h2>
-  <div class="strip"><img src="img/pool.jpg" alt="Pool" loading="lazy"><img src="img/building.jpg" alt="Building" loading="lazy"></div>
 </section>
 
 <section>
