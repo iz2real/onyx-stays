@@ -40,7 +40,10 @@ h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:.3em 0}
 [data-pick]:hover,[data-pick]:focus-visible{border-color:var(--accent,#2f6f57);transform:translateY(-1px)}
 [data-pick] .go{display:block;margin-top:8px;font-weight:600;color:var(--accent,#2f6f57)}
 .note{color:var(--muted);font-size:14px;margin:10px 4px 0}.note a{color:var(--accent)}
-@media (max-width:760px){.bk{grid-template-columns:1fr 1fr}.bk .btn{grid-column:1/-1}}
+.bk input,.bk select{min-width:0;max-width:100%;height:46px;-webkit-appearance:none;appearance:none}.bk select{background-image:linear-gradient(45deg,transparent 50%,#888 50%),linear-gradient(135deg,#888 50%,transparent 50%);background-position:calc(100% - 17px) 50%,calc(100% - 12px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:28px}
+.bk input::-webkit-date-and-time-value{text-align:left}.bk label{min-width:0}
+.gallery{position:relative;text-decoration:none}.gallery .ph{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;pointer-events:none}
+@media (max-width:760px){.bk{grid-template-columns:repeat(6,minmax(0,1fr));align-items:end}.bk .stay{grid-column:1/-1}.bk label{grid-column:span 3}.bk label.g{grid-column:span 2}.bk .btn{grid-column:span 4}}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 22px}
 .stats div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
 .stats b{display:block;font-size:clamp(22px,4vw,30px);color:var(--accent);line-height:1.1}.stats span{display:block;font-size:13px;color:var(--muted);margin-top:4px}
@@ -89,7 +92,8 @@ section{padding:30px 16px}h2{font-size:23px;margin-bottom:4px}.lead{font-size:15
 .unit .gallery{min-height:0;height:210px;overflow:hidden}.unit .gallery img:not(:first-child){display:none}
 .unit .body{padding:14px 16px 16px}.unit h3{font-size:20px}.meta{margin:0 0 8px;font-size:14px}
 .night{font-size:20px;margin:0 0 10px}.night .sub{font-size:13px}
-.feats{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0 0 12px;list-style:none}.feats li{font-size:12.5px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 10px}.feats li:nth-child(n+5){display:none}
+.feats{display:flex;flex-wrap:wrap;gap:5px;padding:0;margin:0 0 10px;list-style:none}.feats li{font-size:12px;line-height:1.3;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:#444}.feats li:nth-child(n+4){display:none}
+.unit .more{display:none}#units{padding-bottom:14px}#units+section{padding-top:22px}
 .prices{gap:8px;margin-bottom:12px}.prices div{padding:8px 10px}
 .acts{flex-wrap:nowrap}.acts .btn{flex:1;padding:12px 8px}
 .more{margin-top:10px}
@@ -131,7 +135,7 @@ footer{padding:28px 16px 90px}
     <label class="m-night">Check-out<input type="date" name="out" required></label>
     <label class="m-week" hidden>Weeks<select name="w"><option value="1">1 week</option><option value="2">2 weeks</option><option value="3">3 weeks</option></select></label>
     <label class="m-month" hidden>Months<select name="mo"><option value="1">1 month</option><option value="2">2 months</option><option value="3">3 months</option></select></label>
-    <label>Guests<select name="g"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+    <label class="g">Guests<select name="g"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
     <button class="btn" type="submit">See prices &amp; book</button>
   </form>
   <p class="note" id="bknote">Live availability and secure online payment. Minimum stay 2 nights. Staying 7+ nights? Tap Weekly or Monthly above.</p>
@@ -196,10 +200,10 @@ footer{padding:28px 16px 90px}
   <p class="lead"><span class="dt">Swipe the photos. Tap the button to check your dates.</span><span class="mb">Swipe for all 7 rooms →</span></p>
   <div class="units">
     <article class="unit" id="u401">
-      <div class="gallery"><img src="img/401.jpg" alt="The Penthouse" loading="lazy"><img src="img/401b.jpg" alt="The Penthouse" loading="lazy"></div>
+      <a class="gallery" href="/rooms/401/" aria-label="All photos of The Penthouse"><img src="img/401.jpg" alt="The Penthouse" loading="lazy"><img src="img/401b.jpg" alt="The Penthouse" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/401/" style="color:inherit;text-decoration:none">The Penthouse</a></h3>
-        <p class="meta">2-bedroom penthouse, top floor · 183 m²</p>
+        <p class="meta">2-bed penthouse · 183&nbsp;m²</p>
         <p class="night"><span class="from">from</span> IDR 2.800.000 <span class="per">/ night</span> <span class="sub">(≈ US$170)</span></p>
         <ul class="feats"><li>private rooftop jacuzzi</li><li>2 bedrooms, 2 bathrooms</li><li>2 balconies</li><li>full kitchen</li><li>sunset views</li><li>shared pool</li></ul>
         <div class="prices">
@@ -211,10 +215,10 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u201">
-      <div class="gallery"><img src="img/201.jpg" alt="Apartment 201" loading="lazy"><img src="img/201b.jpg" alt="Apartment 201" loading="lazy"></div>
+      <a class="gallery" href="/rooms/201/" aria-label="All photos of Apartment 201"><img src="img/201.jpg" alt="Apartment 201" loading="lazy"><img src="img/201b.jpg" alt="Apartment 201" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/201/" style="color:inherit;text-decoration:none">Apartment 201</a></h3>
-        <p class="meta">1-bedroom apartment · 83 m²</p>
+        <p class="meta">1-bed apartment · 83&nbsp;m²</p>
         <p class="night"><span class="from">from</span> IDR 1.400.000 <span class="per">/ night</span> <span class="sub">(≈ US$80)</span></p>
         <ul class="feats"><li>balcony</li><li>full kitchen</li><li>separate living room</li></ul>
         <div class="prices">
@@ -226,10 +230,10 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u203">
-      <div class="gallery"><img src="img/203.jpg" alt="Deluxe Suite 203" loading="lazy"><img src="img/203b.jpg" alt="Deluxe Suite 203" loading="lazy"></div>
+      <a class="gallery" href="/rooms/203/" aria-label="All photos of Deluxe Suite 203"><img src="img/203.jpg" alt="Deluxe Suite 203" loading="lazy"><img src="img/203b.jpg" alt="Deluxe Suite 203" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/203/" style="color:inherit;text-decoration:none">Deluxe Suite 203</a></h3>
-        <p class="meta">Deluxe suite · 54.5 m²</p>
+        <p class="meta">Deluxe suite · 54.5&nbsp;m²</p>
         <p class="night"><span class="from">from</span> IDR 1.200.000 <span class="per">/ night</span> <span class="sub">(≈ US$70)</span></p>
         <ul class="feats"><li>floor-to-ceiling windows</li><li>lounge</li><li>balcony</li><li>full kitchen</li><li>shared pool</li></ul>
         <div class="prices">
@@ -241,10 +245,10 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u202">
-      <div class="gallery"><img src="img/202.jpg" alt="Suite 202" loading="lazy"></div>
+      <a class="gallery" href="/rooms/202/" aria-label="All photos of Suite 202"><img src="img/202.jpg" alt="Suite 202" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/202/" style="color:inherit;text-decoration:none">Suite 202</a></h3>
-        <p class="meta">Standard suite · 35 m²</p>
+        <p class="meta">Standard suite · 35&nbsp;m²</p>
         <p class="night"><span class="from">from</span> IDR 1.000.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
         <ul class="feats"><li>kitchenette</li><li>work desk</li><li>fast Wi-Fi</li><li>shared pool</li></ul>
         <div class="prices">
@@ -256,10 +260,10 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u302">
-      <div class="gallery"><img src="img/302.jpg" alt="Suite 302" loading="lazy"></div>
+      <a class="gallery" href="/rooms/302/" aria-label="All photos of Suite 302"><img src="img/302.jpg" alt="Suite 302" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/302/" style="color:inherit;text-decoration:none">Suite 302</a></h3>
-        <p class="meta">Standard suite · 35 m²</p>
+        <p class="meta">Standard suite · 35&nbsp;m²</p>
         <p class="night"><span class="from">from</span> IDR 1.000.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
         <ul class="feats"><li>kitchenette</li><li>work desk</li><li>fast Wi-Fi</li><li>shared pool</li></ul>
         <div class="prices">
@@ -271,10 +275,10 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u101">
-      <div class="gallery"><img src="img/101.jpg" alt="Suite 101" loading="lazy"></div>
+      <a class="gallery" href="/rooms/101/" aria-label="All photos of Suite 101"><img src="img/101.jpg" alt="Suite 101" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/101/" style="color:inherit;text-decoration:none">Suite 101</a></h3>
-        <p class="meta">Standard suite · 31 m²</p>
+        <p class="meta">Standard suite · 31&nbsp;m²</p>
         <p class="night"><span class="from">from</span> IDR 950.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
         <ul class="feats"><li>ground floor, opens onto the pool</li><li>work desk</li><li>fast Wi-Fi</li></ul>
         <div class="prices">
@@ -286,10 +290,10 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u102">
-      <div class="gallery"><img src="img/102.jpg" alt="Suite 102" loading="lazy"></div>
+      <a class="gallery" href="/rooms/102/" aria-label="All photos of Suite 102"><img src="img/102.jpg" alt="Suite 102" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/102/" style="color:inherit;text-decoration:none">Suite 102</a></h3>
-        <p class="meta">Standard suite · 31 m²</p>
+        <p class="meta">Standard suite · 31&nbsp;m²</p>
         <p class="night"><span class="from">from</span> IDR 950.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
         <ul class="feats"><li>ground floor</li><li>fast Wi-Fi</li><li>weekly cleaning</li></ul>
         <div class="prices">
