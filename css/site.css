@@ -23,7 +23,8 @@ ul.feats{padding-left:20px}
 table{border-collapse:collapse;width:100%;background:var(--card);border-radius:12px;overflow:hidden}
 .tw{overflow-x:auto}th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;font-variant-numeric:tabular-nums}
 th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}summary{font-weight:600;cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}summary::-webkit-details-marker{display:none}summary::after{content:"+";font-size:22px;font-weight:400;color:var(--accent);line-height:1}details[open] summary::after{content:"−"}
+footer a{color:var(--accent);font-weight:600}
 .others{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
 .others a{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--ink)}
 .others img{width:100%;aspect-ratio:4/3;object-fit:cover}.others span{display:block;padding:10px 12px;font-weight:600}.others small{display:block;padding:0 12px 12px;color:var(--muted)}
