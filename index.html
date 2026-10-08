@@ -55,6 +55,9 @@ h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:.3em 0}
 @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.stats div:last-child{grid-column:1/-1}.tiles{grid-template-columns:1fr}.tiles img{height:220px}.map{height:260px}}
 .btn.alt{background:#fff;color:var(--accent);border:1px solid var(--accent)}
 .btn.ghost{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.6);margin-left:8px}
+.hbtns{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch}.hbtns .btn{margin:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;line-height:1.2}
+.btn.wa{background:#25D366;color:#fff}.btn.wa svg{width:20px;height:20px}
+.wafab{position:fixed;right:16px;bottom:calc(78px + env(safe-area-inset-bottom));z-index:9;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25);transition:opacity .2s}.wafab svg{width:30px;height:30px}@media (max-width:640px){.wafab{width:52px;height:52px;bottom:calc(72px + env(safe-area-inset-bottom))}}
 section{max-width:1080px;margin:0 auto;padding:48px 20px}
 h2{font-size:28px;margin:0 0 8px}.lead{color:var(--muted);margin:0 0 28px}
 .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
@@ -119,8 +122,7 @@ footer{padding:28px 16px 90px}
     <div class="brand">Canggu · Bali</div>
     <h1>Boutique hotel<br>in Canggu.</h1>
     <p>Suites and a rooftop penthouse around a pool in Padang Linjong, Canggu's quieter side<span class="dt">, a few minutes from Echo Beach</span>. Rooms from IDR 950k a night<span class="dt">. Weekly and monthly rates available</span>.</p>
-    <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a>
-    <a class="btn ghost" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20a%20room.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp us</a>
+    <div class="hbtns"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn wa" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20a%20room.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a></div>
   </div>
 </header>
 
@@ -179,8 +181,8 @@ footer{padding:28px 16px 90px}
   });
   // Keep the chat button off the booking box while it is on screen (phones).
   document.addEventListener('DOMContentLoaded',function(){
-    var fl=document.querySelector('.float');
-    if(fl&&'IntersectionObserver' in window) new IntersectionObserver(function(es){fl.style.opacity=es[0].isIntersecting?'0':'';fl.style.pointerEvents=es[0].isIntersecting?'none':''},{rootMargin:'-75% 0px 0px 0px'}).observe(f);
+    var fl=document.querySelectorAll('.float,.wafab');
+    if(fl.length&&'IntersectionObserver' in window) new IntersectionObserver(function(es){[].forEach.call(fl,function(x){x.style.opacity=es[0].isIntersecting?'0':'';x.style.pointerEvents=es[0].isIntersecting?'none':''})},{rootMargin:'-60% 0px 0px 0px'}).observe(f);
   });
 })();
 </script>
@@ -359,6 +361,7 @@ footer{padding:28px 16px 90px}
 <footer><img src="img/onyx-logo-black.png" alt="Onyx Beach Hotel" style="width:140px;height:auto;margin:0 auto 12px;display:block;object-fit:contain" class="flogo">Onyx Beach Hotel · Padang Linjong, Canggu, Bali · <a href="https://wa.me/6281215627299?text=Hi%20Onyx">WhatsApp +6281215627299</a> · <a href="/privacy/">Privacy</a><br><small>Operated by PT Like Minded Management</small></footer>
 <div id="cbcode" hidden style="position:fixed;left:12px;right:12px;top:12px;z-index:50;background:#000;color:#fff;border-radius:14px;padding:16px;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.4)"><b>Cloudbeds approved.</b> Copy this code and send it to Claude (it expires in a few minutes):<div id="cbval" style="font:600 16px ui-monospace,monospace;background:#222;padding:10px;border-radius:8px;margin:10px 0;word-break:break-all;user-select:all;-webkit-user-select:all"></div><button id="cbcopy" style="font:700 15px inherit;padding:10px 16px;border-radius:999px;border:0;background:#fff;color:#000">Copy code</button></div>
 <script>(function(){var c=new URLSearchParams(location.search).get('code');if(!c)return;var b=document.getElementById('cbcode');document.getElementById('cbval').textContent=c;b.hidden=false;document.getElementById('cbcopy').onclick=function(){try{navigator.clipboard.writeText(c);this.textContent='Copied'}catch(e){}};})();</script>
+<a class="wafab" href="https://wa.me/6281215627299?text=Hi%20Onyx" aria-label="WhatsApp us"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <a class="btn float" href="https://onyx-whatsapp.onyxbeachhotel.workers.dev/book?chat=1" aria-label="Chat with us: instant replies, 24/7">💬 Chat<span class="fl-x"> now · instant replies</span></a>
 </body>
 </html>
