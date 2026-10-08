@@ -50,7 +50,7 @@ h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:.3em 0}
 .map{margin-top:22px;border-radius:16px;overflow:hidden;border:1px solid var(--line);height:320px}.map iframe{border:0;width:100%;height:100%}
 .place .why{margin-top:0}
 @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.stats div:last-child{grid-column:1/-1}.tiles{grid-template-columns:1fr}.tiles img{height:220px}.map{height:260px}}
-.btn.alt{background:#fff;color:var(--accent);border:1px solid var(--accent);margin-left:6px}
+.btn.alt{background:#fff;color:var(--accent);border:1px solid var(--accent)}
 .btn.ghost{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.6);margin-left:8px}
 section{max-width:1080px;margin:0 auto;padding:48px 20px}
 h2{font-size:28px;margin:0 0 8px}.lead{color:var(--muted);margin:0 0 28px}
@@ -75,6 +75,36 @@ summary{font-weight:600;cursor:pointer}
 footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14px}
 .float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:9;box-shadow:0 6px 20px rgba(0,0,0,.25)}@media (max-width:640px){.float{padding:10px 16px;font-size:15px}.float .fl-x{display:none}}
 @media (max-width:760px){.unit{grid-template-columns:1fr}.gallery{min-height:240px}.btn.ghost{display:none}.strip img{height:180px}}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts .btn{margin:0;text-align:center}
+#rates .why .p{display:block;font-weight:700;color:var(--accent)}#rates .why .d{display:block;color:#444}
+.mb{display:none}
+@media (max-width:760px){
+section{padding:30px 16px}h2{font-size:23px;margin-bottom:4px}.lead{font-size:15px;margin:0 0 14px}
+.dt{display:none}.mb{display:inline}
+.hero{height:64svh;min-height:470px}.hero .in{padding:22px 16px}.hero p{font-size:16px;margin-bottom:14px}.hero .in img.logo{width:min(150px,38vw);margin-bottom:8px}h1{font-size:34px}
+.search{padding-top:16px}.bk{padding:12px;gap:10px}
+#rates .why{grid-template-columns:repeat(3,1fr);gap:8px}#rates .why div{padding:12px 10px;font-size:13.5px;text-align:center}#rates .why .d{display:none}#rates .why .go{margin-top:4px;font-size:13px}
+.units{grid-auto-flow:column;grid-auto-columns:86%;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -16px;padding:0 16px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.units::-webkit-scrollbar{display:none}.unit{scroll-snap-align:center;align-self:start}
+.unit .gallery{min-height:0;height:210px;overflow:hidden}.unit .gallery img:not(:first-child){display:none}
+.unit .body{padding:14px 16px 16px}.unit h3{font-size:20px}.meta{margin:0 0 8px;font-size:14px}
+.night{font-size:20px;margin:0 0 10px}.night .sub{font-size:13px}
+.feats{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0 0 12px;list-style:none}.feats li{font-size:12.5px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 10px}.feats li:nth-child(n+5){display:none}
+.prices{gap:8px;margin-bottom:12px}.prices div{padding:8px 10px}
+.acts{flex-wrap:nowrap}.acts .btn{flex:1;padding:12px 8px}
+.more{margin-top:10px}
+.why{grid-template-columns:1fr 1fr;gap:8px}.why div{padding:12px;font-size:14px}
+.stats{display:flex;overflow-x:auto;gap:8px;margin:0 -16px 14px;padding:0 16px 4px;scrollbar-width:none}.stats::-webkit-scrollbar{display:none}.stats div{flex:0 0 40%;padding:12px 8px}.stats div:last-child{grid-column:auto}
+.tiles{display:grid;grid-auto-flow:column;grid-auto-columns:78%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 -16px 14px;padding:0 16px 4px;scrollbar-width:none}.tiles::-webkit-scrollbar{display:none}.tiles figure{scroll-snap-align:start}.tiles img{height:170px}.tiles figcaption{padding:10px 12px;font-size:14px}
+.map{height:200px;margin-top:14px}
+.tiles,.stats{scroll-padding:0 16px}.tiles figure:first-child,.stats div:first-child{margin-left:0}
+.night .sub{display:block;margin-top:2px}
+#rates .lead{display:none}
+.place .lead{font-size:14.5px}
+details{padding:12px 14px;margin-bottom:8px}details p{margin:8px 0 0}
+footer{padding:28px 16px 90px}
+}
+
 </style>
 </head>
 <body>
@@ -84,7 +114,7 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
     <img class="logo" src="img/onyx-logo-white.png" alt="Onyx Beach Hotel">
     <div class="brand">Canggu · Bali</div>
     <h1>Boutique hotel<br>in Canggu.</h1>
-    <p>Suites and a rooftop penthouse around a pool in Padang Linjong, Canggu's quieter side, a few minutes from Echo Beach. Rooms from IDR 950k a night. Weekly and monthly rates available.</p>
+    <p>Suites and a rooftop penthouse around a pool in Padang Linjong, Canggu's quieter side<span class="dt">, a few minutes from Echo Beach</span>. Rooms from IDR 950k a night<span class="dt">. Weekly and monthly rates available</span>.</p>
     <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a>
     <a class="btn ghost" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20a%20room.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp us</a>
   </div>
@@ -155,9 +185,132 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
   <h2>Stay a night, a week or a month</h2>
   <p class="lead">Book by the night like any hotel. Staying longer? Tap weekly or monthly to see prices.</p>
   <div class="why">
-    <div data-pick="night" role="button" tabindex="0"><b>Nightly</b>From IDR 950k a night, 2-night minimum.<span class="go">Pick dates →</span></div>
-    <div data-pick="week" role="button" tabindex="0"><b>Weekly</b>7 nights or more: about 10% less than the nightly rate.<span class="go">See weekly prices →</span></div>
-    <div data-pick="month" role="button" tabindex="0"><b>Monthly</b>From IDR 20M a month. Our best value.<span class="go">See monthly prices →</span></div>
+    <div data-pick="night" role="button" tabindex="0"><b>Nightly</b><span class="p">from IDR 950k</span><span class="d">A night, 2-night minimum.</span><span class="go">Pick dates →</span></div>
+    <div data-pick="week" role="button" tabindex="0"><b>Weekly</b><span class="p">about −10%</span><span class="d">7 nights or more, below the nightly rate.</span><span class="go">See prices →</span></div>
+    <div data-pick="month" role="button" tabindex="0"><b>Monthly</b><span class="p">from IDR 20M</span><span class="d">Our best value.</span><span class="go">See prices →</span></div>
+  </div>
+</section>
+
+<section id="units">
+  <h2>Rooms</h2>
+  <p class="lead"><span class="dt">Swipe the photos. Tap the button to check your dates.</span><span class="mb">Swipe for all 7 rooms →</span></p>
+  <div class="units">
+    <article class="unit" id="u401">
+      <div class="gallery"><img src="img/401.jpg" alt="The Penthouse" loading="lazy"><img src="img/401b.jpg" alt="The Penthouse" loading="lazy"></div>
+      <div class="body">
+        <h3><a href="/rooms/401/" style="color:inherit;text-decoration:none">The Penthouse</a></h3>
+        <p class="meta">2-bedroom penthouse, top floor · 183 m²</p>
+        <p class="night"><span class="from">from</span> IDR 2.800.000 <span class="per">/ night</span> <span class="sub">(≈ US$170)</span></p>
+        <ul class="feats"><li>private rooftop jacuzzi</li><li>2 bedrooms, 2 bathrooms</li><li>2 balconies</li><li>full kitchen</li><li>sunset views</li><li>shared pool</li></ul>
+        <div class="prices">
+          <div><span class="lbl">Weekly</span><span class="amt">IDR 17.5M</span><span class="sub">(≈ US$1,050)</span></div>
+          <div><span class="lbl">Monthly</span><span class="amt">IDR 55M</span><span class="sub">(≈ US$3,350)</span></div>
+        </div>
+        <div class="acts"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20The%20Penthouse.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp</a></div>
+        <p class="more"><a href="/rooms/401/">All photos and details →</a></p>
+      </div>
+    </article>
+    <article class="unit" id="u201">
+      <div class="gallery"><img src="img/201.jpg" alt="Apartment 201" loading="lazy"><img src="img/201b.jpg" alt="Apartment 201" loading="lazy"></div>
+      <div class="body">
+        <h3><a href="/rooms/201/" style="color:inherit;text-decoration:none">Apartment 201</a></h3>
+        <p class="meta">1-bedroom apartment · 83 m²</p>
+        <p class="night"><span class="from">from</span> IDR 1.400.000 <span class="per">/ night</span> <span class="sub">(≈ US$80)</span></p>
+        <ul class="feats"><li>balcony</li><li>full kitchen</li><li>separate living room</li></ul>
+        <div class="prices">
+          <div><span class="lbl">Weekly</span><span class="amt">IDR 9M</span><span class="sub">(≈ US$550)</span></div>
+          <div><span class="lbl">Monthly</span><span class="amt">IDR 34M</span><span class="sub">(≈ US$2,050)</span></div>
+        </div>
+        <div class="acts"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Apartment%20201.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp</a></div>
+        <p class="more"><a href="/rooms/201/">All photos and details →</a></p>
+      </div>
+    </article>
+    <article class="unit" id="u203">
+      <div class="gallery"><img src="img/203.jpg" alt="Deluxe Suite 203" loading="lazy"><img src="img/203b.jpg" alt="Deluxe Suite 203" loading="lazy"></div>
+      <div class="body">
+        <h3><a href="/rooms/203/" style="color:inherit;text-decoration:none">Deluxe Suite 203</a></h3>
+        <p class="meta">Deluxe suite · 54.5 m²</p>
+        <p class="night"><span class="from">from</span> IDR 1.200.000 <span class="per">/ night</span> <span class="sub">(≈ US$70)</span></p>
+        <ul class="feats"><li>floor-to-ceiling windows</li><li>lounge</li><li>balcony</li><li>full kitchen</li><li>shared pool</li></ul>
+        <div class="prices">
+          <div><span class="lbl">Weekly</span><span class="amt">IDR 7.5M</span><span class="sub">(≈ US$450)</span></div>
+          <div><span class="lbl">Monthly</span><span class="amt">IDR 30M</span><span class="sub">(≈ US$1,800)</span></div>
+        </div>
+        <div class="acts"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Deluxe%20Suite%20203.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp</a></div>
+        <p class="more"><a href="/rooms/203/">All photos and details →</a></p>
+      </div>
+    </article>
+    <article class="unit" id="u202">
+      <div class="gallery"><img src="img/202.jpg" alt="Suite 202" loading="lazy"></div>
+      <div class="body">
+        <h3><a href="/rooms/202/" style="color:inherit;text-decoration:none">Suite 202</a></h3>
+        <p class="meta">Standard suite · 35 m²</p>
+        <p class="night"><span class="from">from</span> IDR 1.000.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
+        <ul class="feats"><li>kitchenette</li><li>work desk</li><li>fast Wi-Fi</li><li>shared pool</li></ul>
+        <div class="prices">
+          <div><span class="lbl">Weekly</span><span class="amt">IDR 6.5M</span><span class="sub">(≈ US$390)</span></div>
+          <div><span class="lbl">Monthly</span><span class="amt">IDR 24M</span><span class="sub">(≈ US$1,450)</span></div>
+        </div>
+        <div class="acts"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20202.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp</a></div>
+        <p class="more"><a href="/rooms/202/">All photos and details →</a></p>
+      </div>
+    </article>
+    <article class="unit" id="u302">
+      <div class="gallery"><img src="img/302.jpg" alt="Suite 302" loading="lazy"></div>
+      <div class="body">
+        <h3><a href="/rooms/302/" style="color:inherit;text-decoration:none">Suite 302</a></h3>
+        <p class="meta">Standard suite · 35 m²</p>
+        <p class="night"><span class="from">from</span> IDR 1.000.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
+        <ul class="feats"><li>kitchenette</li><li>work desk</li><li>fast Wi-Fi</li><li>shared pool</li></ul>
+        <div class="prices">
+          <div><span class="lbl">Weekly</span><span class="amt">IDR 6.5M</span><span class="sub">(≈ US$390)</span></div>
+          <div><span class="lbl">Monthly</span><span class="amt">IDR 24M</span><span class="sub">(≈ US$1,450)</span></div>
+        </div>
+        <div class="acts"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20302.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp</a></div>
+        <p class="more"><a href="/rooms/302/">All photos and details →</a></p>
+      </div>
+    </article>
+    <article class="unit" id="u101">
+      <div class="gallery"><img src="img/101.jpg" alt="Suite 101" loading="lazy"></div>
+      <div class="body">
+        <h3><a href="/rooms/101/" style="color:inherit;text-decoration:none">Suite 101</a></h3>
+        <p class="meta">Standard suite · 31 m²</p>
+        <p class="night"><span class="from">from</span> IDR 950.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
+        <ul class="feats"><li>ground floor, opens onto the pool</li><li>work desk</li><li>fast Wi-Fi</li></ul>
+        <div class="prices">
+          <div><span class="lbl">Weekly</span><span class="amt">IDR 6M</span><span class="sub">(≈ US$360)</span></div>
+          <div><span class="lbl">Monthly</span><span class="amt">IDR 20M</span><span class="sub">(≈ US$1,200)</span></div>
+        </div>
+        <div class="acts"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20101.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp</a></div>
+        <p class="more"><a href="/rooms/101/">All photos and details →</a></p>
+      </div>
+    </article>
+    <article class="unit" id="u102">
+      <div class="gallery"><img src="img/102.jpg" alt="Suite 102" loading="lazy"></div>
+      <div class="body">
+        <h3><a href="/rooms/102/" style="color:inherit;text-decoration:none">Suite 102</a></h3>
+        <p class="meta">Standard suite · 31 m²</p>
+        <p class="night"><span class="from">from</span> IDR 950.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
+        <ul class="feats"><li>ground floor</li><li>fast Wi-Fi</li><li>weekly cleaning</li></ul>
+        <div class="prices">
+          <div><span class="lbl">Weekly</span><span class="amt">IDR 6M</span><span class="sub">(≈ US$360)</span></div>
+          <div><span class="lbl">Monthly</span><span class="amt">IDR 20M</span><span class="sub">(≈ US$1,200)</span></div>
+        </div>
+        <div class="acts"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20102.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp</a></div>
+        <p class="more"><a href="/rooms/102/">All photos and details →</a></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Why book direct</h2>
+  <p class="lead">Same rooms as on the booking sites, straight from us.</p>
+  <div class="why">
+    <div><b>Secure online booking</b>Live availability and payment through our booking system, confirmed instantly.</div>
+    <div><b>Weekly and monthly rates</b>Long-stay prices you won't find on the booking sites.</div>
+    <div><b>A real person</b>Questions before or during your stay? WhatsApp us and get a quick answer.</div>
+    <div><b>Local help</b>Scooters, surf lessons and trips arranged by our team.</div>
   </div>
 </section>
 
@@ -186,128 +339,9 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
   <p class="note"><a href="https://www.google.com/maps/search/?api=1&amp;query=Onyx+Beach+Hotel+Canggu">Open in Google Maps</a> · Jl. Canggu Padang Linjong No.45x, Canggu, Badung, Bali 80351</p>
 </section>
 
-<section>
-  <h2>Why book direct</h2>
-  <p class="lead">Same rooms as on the booking sites, straight from us.</p>
-  <div class="why">
-    <div><b>Secure online booking</b>Live availability and payment through our booking system, confirmed instantly.</div>
-    <div><b>Weekly and monthly rates</b>Long-stay prices you won't find on the booking sites.</div>
-    <div><b>A real person</b>Questions before or during your stay? WhatsApp us and get a quick answer.</div>
-    <div><b>Local help</b>Scooters, surf lessons and trips arranged by our team.</div>
-  </div>
-</section>
 
-<section id="units">
-  <h2>Rooms</h2>
-  <p class="lead">Swipe the photos. Tap the button to check your dates.</p>
-  <div class="units">
-    <article class="unit" id="u401">
-      <div class="gallery"><img src="img/401.jpg" alt="The Penthouse" loading="lazy"><img src="img/401b.jpg" alt="The Penthouse" loading="lazy"></div>
-      <div class="body">
-        <h3><a href="/rooms/401/" style="color:inherit;text-decoration:none">The Penthouse</a></h3>
-        <p class="meta">2-bedroom penthouse, top floor · 183 m²</p>
-        <p class="night"><span class="from">from</span> IDR 2.800.000 <span class="per">/ night</span> <span class="sub">(≈ US$170)</span></p>
-        <ul class="feats"><li>private rooftop jacuzzi</li><li>2 bedrooms, 2 bathrooms</li><li>2 balconies</li><li>full kitchen</li><li>sunset views</li><li>shared pool</li></ul>
-        <div class="prices">
-          <div><span class="lbl">Weekly</span><span class="amt">IDR 17.5M</span><span class="sub">(≈ US$1,050)</span></div>
-          <div><span class="lbl">Monthly</span><span class="amt">IDR 55M</span><span class="sub">(≈ US$3,350)</span></div>
-        </div>
-        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20The%20Penthouse.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
-        <p class="more"><a href="/rooms/401/">All photos and details →</a></p>
-      </div>
-    </article>
-    <article class="unit" id="u201">
-      <div class="gallery"><img src="img/201.jpg" alt="Apartment 201" loading="lazy"><img src="img/201b.jpg" alt="Apartment 201" loading="lazy"></div>
-      <div class="body">
-        <h3><a href="/rooms/201/" style="color:inherit;text-decoration:none">Apartment 201</a></h3>
-        <p class="meta">1-bedroom apartment · 83 m²</p>
-        <p class="night"><span class="from">from</span> IDR 1.400.000 <span class="per">/ night</span> <span class="sub">(≈ US$80)</span></p>
-        <ul class="feats"><li>balcony</li><li>full kitchen</li><li>separate living room</li></ul>
-        <div class="prices">
-          <div><span class="lbl">Weekly</span><span class="amt">IDR 9M</span><span class="sub">(≈ US$550)</span></div>
-          <div><span class="lbl">Monthly</span><span class="amt">IDR 34M</span><span class="sub">(≈ US$2,050)</span></div>
-        </div>
-        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Apartment%20201.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
-        <p class="more"><a href="/rooms/201/">All photos and details →</a></p>
-      </div>
-    </article>
-    <article class="unit" id="u203">
-      <div class="gallery"><img src="img/203.jpg" alt="Deluxe Suite 203" loading="lazy"><img src="img/203b.jpg" alt="Deluxe Suite 203" loading="lazy"></div>
-      <div class="body">
-        <h3><a href="/rooms/203/" style="color:inherit;text-decoration:none">Deluxe Suite 203</a></h3>
-        <p class="meta">Deluxe suite · 54.5 m²</p>
-        <p class="night"><span class="from">from</span> IDR 1.200.000 <span class="per">/ night</span> <span class="sub">(≈ US$70)</span></p>
-        <ul class="feats"><li>floor-to-ceiling windows</li><li>lounge</li><li>balcony</li><li>full kitchen</li><li>shared pool</li></ul>
-        <div class="prices">
-          <div><span class="lbl">Weekly</span><span class="amt">IDR 7.5M</span><span class="sub">(≈ US$450)</span></div>
-          <div><span class="lbl">Monthly</span><span class="amt">IDR 30M</span><span class="sub">(≈ US$1,800)</span></div>
-        </div>
-        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Deluxe%20Suite%20203.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
-        <p class="more"><a href="/rooms/203/">All photos and details →</a></p>
-      </div>
-    </article>
-    <article class="unit" id="u202">
-      <div class="gallery"><img src="img/202.jpg" alt="Suite 202" loading="lazy"></div>
-      <div class="body">
-        <h3><a href="/rooms/202/" style="color:inherit;text-decoration:none">Suite 202</a></h3>
-        <p class="meta">Standard suite · 35 m²</p>
-        <p class="night"><span class="from">from</span> IDR 1.000.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
-        <ul class="feats"><li>kitchenette</li><li>work desk</li><li>fast Wi-Fi</li><li>shared pool</li></ul>
-        <div class="prices">
-          <div><span class="lbl">Weekly</span><span class="amt">IDR 6.5M</span><span class="sub">(≈ US$390)</span></div>
-          <div><span class="lbl">Monthly</span><span class="amt">IDR 24M</span><span class="sub">(≈ US$1,450)</span></div>
-        </div>
-        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20202.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
-        <p class="more"><a href="/rooms/202/">All photos and details →</a></p>
-      </div>
-    </article>
-    <article class="unit" id="u302">
-      <div class="gallery"><img src="img/302.jpg" alt="Suite 302" loading="lazy"></div>
-      <div class="body">
-        <h3><a href="/rooms/302/" style="color:inherit;text-decoration:none">Suite 302</a></h3>
-        <p class="meta">Standard suite · 35 m²</p>
-        <p class="night"><span class="from">from</span> IDR 1.000.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
-        <ul class="feats"><li>kitchenette</li><li>work desk</li><li>fast Wi-Fi</li><li>shared pool</li></ul>
-        <div class="prices">
-          <div><span class="lbl">Weekly</span><span class="amt">IDR 6.5M</span><span class="sub">(≈ US$390)</span></div>
-          <div><span class="lbl">Monthly</span><span class="amt">IDR 24M</span><span class="sub">(≈ US$1,450)</span></div>
-        </div>
-        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20302.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
-        <p class="more"><a href="/rooms/302/">All photos and details →</a></p>
-      </div>
-    </article>
-    <article class="unit" id="u101">
-      <div class="gallery"><img src="img/101.jpg" alt="Suite 101" loading="lazy"></div>
-      <div class="body">
-        <h3><a href="/rooms/101/" style="color:inherit;text-decoration:none">Suite 101</a></h3>
-        <p class="meta">Standard suite · 31 m²</p>
-        <p class="night"><span class="from">from</span> IDR 950.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
-        <ul class="feats"><li>ground floor, opens onto the pool</li><li>work desk</li><li>fast Wi-Fi</li></ul>
-        <div class="prices">
-          <div><span class="lbl">Weekly</span><span class="amt">IDR 6M</span><span class="sub">(≈ US$360)</span></div>
-          <div><span class="lbl">Monthly</span><span class="amt">IDR 20M</span><span class="sub">(≈ US$1,200)</span></div>
-        </div>
-        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20101.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
-        <p class="more"><a href="/rooms/101/">All photos and details →</a></p>
-      </div>
-    </article>
-    <article class="unit" id="u102">
-      <div class="gallery"><img src="img/102.jpg" alt="Suite 102" loading="lazy"></div>
-      <div class="body">
-        <h3><a href="/rooms/102/" style="color:inherit;text-decoration:none">Suite 102</a></h3>
-        <p class="meta">Standard suite · 31 m²</p>
-        <p class="night"><span class="from">from</span> IDR 950.000 <span class="per">/ night</span> <span class="sub">(≈ US$60)</span></p>
-        <ul class="feats"><li>ground floor</li><li>fast Wi-Fi</li><li>weekly cleaning</li></ul>
-        <div class="prices">
-          <div><span class="lbl">Weekly</span><span class="amt">IDR 6M</span><span class="sub">(≈ US$360)</span></div>
-          <div><span class="lbl">Monthly</span><span class="amt">IDR 20M</span><span class="sub">(≈ US$1,200)</span></div>
-        </div>
-        <a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a> <a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Suite%20102.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">Ask on WhatsApp</a>
-        <p class="more"><a href="/rooms/102/">All photos and details →</a></p>
-      </div>
-    </article>
-  </div>
-</section>
+
+
 
 <section>
   <h2>Good to know</h2>
