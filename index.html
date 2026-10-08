@@ -31,6 +31,14 @@ h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:.3em 0}
 .bk label{display:flex;flex-direction:column;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);gap:6px}
 .bk input,.bk select{font:inherit;font-size:16px;color:var(--ink);padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;min-height:46px;width:100%}
 .bk .btn{border:0;font-size:16px;cursor:pointer;min-height:46px}
+.bk .stay{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--bg,#f4f1ec);border:1px solid var(--line);border-radius:12px;padding:4px}
+.bk .stay button{font:inherit;font-size:15px;font-weight:600;border:0;border-radius:9px;padding:10px 4px;background:transparent;color:var(--muted);cursor:pointer;min-height:42px}
+.bk .stay button[aria-selected=true]{background:var(--accent,#2f6f57);color:#fff}
+.bk label[hidden]{display:none}
+.float{transition:opacity .2s}
+[data-pick]{cursor:pointer;transition:border-color .15s,transform .15s}
+[data-pick]:hover,[data-pick]:focus-visible{border-color:var(--accent,#2f6f57);transform:translateY(-1px)}
+[data-pick] .go{display:block;margin-top:8px;font-weight:600;color:var(--accent,#2f6f57)}
 .note{color:var(--muted);font-size:14px;margin:10px 4px 0}.note a{color:var(--accent)}
 @media (max-width:760px){.bk{grid-template-columns:1fr 1fr}.bk .btn{grid-column:1/-1}}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 22px}
@@ -84,39 +92,72 @@ footer{text-align:center;color:var(--muted);padding:40px 20px 90px;font-size:14p
 
 <section class="search" id="book">
   <form id="bk" class="bk">
+    <div class="stay" role="tablist" aria-label="Length of stay">
+      <button type="button" role="tab" data-m="night" aria-selected="true">Nightly</button>
+      <button type="button" role="tab" data-m="week" aria-selected="false">Weekly</button>
+      <button type="button" role="tab" data-m="month" aria-selected="false">Monthly</button>
+    </div>
     <label>Check-in<input type="date" name="in" required></label>
-    <label>Check-out<input type="date" name="out" required></label>
+    <label class="m-night">Check-out<input type="date" name="out" required></label>
+    <label class="m-week" hidden>Weeks<select name="w"><option value="1">1 week</option><option value="2">2 weeks</option><option value="3">3 weeks</option></select></label>
+    <label class="m-month" hidden>Months<select name="mo"><option value="1">1 month</option><option value="2">2 months</option><option value="3">3 months</option></select></label>
     <label>Guests<select name="g"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
     <button class="btn" type="submit">See prices &amp; book</button>
   </form>
-  <p class="note">Live availability and secure online payment. Minimum stay 2 nights. Staying 7+ nights? <a href="#rates">See weekly and monthly rates</a>.</p>
+  <p class="note" id="bknote">Live availability and secure online payment. Minimum stay 2 nights. Staying 7+ nights? Tap Weekly or Monthly above.</p>
 </section>
 <script>
 (function(){
-  var f=document.getElementById('bk'), base="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr";
+  var f=document.getElementById('bk'), base="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr", mode='night';
+  var direct='https://onyx-whatsapp.onyxbeachhotel.workers.dev/book';
+  var notes={night:'Live availability and secure online payment. Minimum stay 2 nights. Staying 7+ nights? Tap Weekly or Monthly above.',
+    week:'Weekly prices, about 10% below the nightly rate. Booked direct with us: no booking-site fees. We confirm on WhatsApp.',
+    month:'Monthly prices from IDR 20M, our best value. Booked direct with us: no booking-site fees. Longer than 3 months? Tap Chat.'};
   function iso(d){return d.toISOString().slice(0,10)}
-  var t=new Date(); t.setHours(12);
-  var a=new Date(t), b=new Date(t); b.setDate(b.getDate()+2);
-  f['in'].min=iso(a); f['in'].value=iso(a); f.out.min=iso(b); f.out.value=iso(b);
+  function plus(v,n,unit){var d=new Date(v+'T12:00'); if(unit==='m') d.setMonth(d.getMonth()+n); else d.setDate(d.getDate()+n); return iso(d)}
+  var t=new Date(Date.now()+8*3600e3); t.setUTCHours(12);
+  f['in'].min=iso(t); f['in'].value=iso(t); f.out.min=plus(iso(t),2); f.out.value=plus(iso(t),2);
   f['in'].addEventListener('change',function(){
-    var d=new Date(f['in'].value+'T12:00'); d.setDate(d.getDate()+2);
-    f.out.min=iso(d); if(f.out.value<iso(d)) f.out.value=iso(d);
+    var m=plus(f['in'].value,2); f.out.min=m; if(f.out.value<m) f.out.value=m;
   });
+  function setMode(m){
+    mode=m;
+    [].forEach.call(f.querySelectorAll('.stay button'),function(b){b.setAttribute('aria-selected',b.getAttribute('data-m')===m?'true':'false')});
+    f.querySelector('.m-night').hidden=m!=='night'; f.out.required=m==='night';
+    f.querySelector('.m-week').hidden=m!=='week'; f.querySelector('.m-month').hidden=m!=='month';
+    document.getElementById('bknote').textContent=notes[m];
+  }
+  [].forEach.call(f.querySelectorAll('.stay button'),function(b){b.addEventListener('click',function(){setMode(b.getAttribute('data-m'))})});
+  function pick(e){
+    var el=e.target.closest&&e.target.closest('[data-pick]'); if(!el||(e.type==='keydown'&&e.key!=='Enter'&&e.key!==' ')) return;
+    e.preventDefault(); setMode(el.getAttribute('data-pick')); document.getElementById('book').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.addEventListener('click',pick); document.addEventListener('keydown',pick);
+  if(location.hash==='#monthly') setMode('month'); else if(location.hash==='#weekly') setMode('week');
   f.addEventListener('submit',function(e){
     e.preventDefault();
-    var q='checkin='+f['in'].value+'&checkout='+f.out.value+'&adults='+f.g.value;
-    location.href=base+(base.indexOf('?')<0?'?':'&')+q+'#'+q;
+    if(mode==='night'){
+      var q='checkin='+f['in'].value+'&checkout='+f.out.value+'&adults='+f.g.value;
+      location.href=base+(base.indexOf('?')<0?'?':'&')+q+'#'+q; return;
+    }
+    var out=mode==='week'?plus(f['in'].value,7*f.w.value):plus(f['in'].value,+f.mo.value,'m');
+    location.href=direct+'?in='+f['in'].value+'&out='+out+'&adults='+f.g.value;
+  });
+  // Keep the chat button off the booking box while it is on screen (phones).
+  document.addEventListener('DOMContentLoaded',function(){
+    var fl=document.querySelector('.float');
+    if(fl&&'IntersectionObserver' in window) new IntersectionObserver(function(es){fl.style.opacity=es[0].isIntersecting?'0':'';fl.style.pointerEvents=es[0].isIntersecting?'none':''},{rootMargin:'-75% 0px 0px 0px'}).observe(f);
   });
 })();
 </script>
 
 <section id="rates">
   <h2>Stay a night, a week or a month</h2>
-  <p class="lead">Book by the night like any hotel. Staying longer? Ask for our weekly or monthly rate.</p>
+  <p class="lead">Book by the night like any hotel. Staying longer? Tap weekly or monthly to see prices.</p>
   <div class="why">
-    <div><b>Nightly</b>From IDR 950k a night, 2-night minimum.</div>
-    <div><b>Weekly</b>7 nights or more: about 10% less than the nightly rate.</div>
-    <div><b>Monthly</b>From IDR 20M a month. Our best value.</div>
+    <div data-pick="night" role="button" tabindex="0"><b>Nightly</b>From IDR 950k a night, 2-night minimum.<span class="go">Pick dates →</span></div>
+    <div data-pick="week" role="button" tabindex="0"><b>Weekly</b>7 nights or more: about 10% less than the nightly rate.<span class="go">See weekly prices →</span></div>
+    <div data-pick="month" role="button" tabindex="0"><b>Monthly</b>From IDR 20M a month. Our best value.<span class="go">See monthly prices →</span></div>
   </div>
 </section>
 
