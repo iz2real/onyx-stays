@@ -175,7 +175,7 @@ footer{padding:28px 16px 90px}
       location.href=base+(base.indexOf('?')<0?'?':'&')+q+'#'+q; return;
     }
     var out=mode==='week'?plus(f['in'].value,7*f.w.value):plus(f['in'].value,+f.mo.value,'m');
-    location.href=direct+'?in='+f['in'].value+'&out='+out+'&adults='+f.g.value;
+    location.href=direct+'?in='+f['in'].value+'&out='+out+'&adults='+Math.min(f.g.value,4)+'&stay='+mode+'&n='+(mode==='week'?f.w.value:f.mo.value);
   });
   // Keep the chat button off the booking box while it is on screen (phones).
   document.addEventListener('DOMContentLoaded',function(){
