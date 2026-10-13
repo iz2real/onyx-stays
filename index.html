@@ -67,7 +67,7 @@ h2{font-size:28px;margin:0 0 8px}.lead{color:var(--muted);margin:0 0 28px}
 .units{display:grid;gap:22px}
 .unit{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr}
 @media (min-width:761px){.units{grid-template-columns:1fr 1fr;gap:18px}.unit .gallery{height:260px;min-height:0}}
-.gallery{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;min-height:300px}
+.gallery{display:block;overflow:hidden;min-height:300px}.gallery img{width:100%;height:100%;object-fit:cover;display:block}
 .gallery img{scroll-snap-align:start}
 .unit .body{padding:22px}.unit h3{margin:0;font-size:22px}.meta{color:var(--muted);margin:2px 0 12px}
 .more{margin:12px 0 0;font-size:14px}.more a{color:var(--accent);font-weight:600}
@@ -206,9 +206,9 @@ footer{padding:28px 16px 90px}
   <p class="lead"><span class="dt">Tap a photo for all pictures. Book online or WhatsApp us.</span><span class="mb">Swipe for all 7 rooms →</span></p>
   <div class="units">
     <article class="unit" id="u401">
-      <a class="gallery" href="/rooms/401/" aria-label="All photos of The Penthouse"><img src="img/401.jpg" alt="The Penthouse" loading="lazy"><img src="img/401b.jpg" alt="The Penthouse" loading="lazy"><span class="ph">All photos</span></a>
+      <a class="gallery" href="/rooms/401/" aria-label="All photos of Penthouse"><img src="img/401.jpg" alt="Penthouse" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
-        <h3><a href="/rooms/401/" style="color:inherit;text-decoration:none">The Penthouse</a></h3>
+        <h3><a href="/rooms/401/" style="color:inherit;text-decoration:none">Penthouse</a></h3>
         <p class="meta">2-bed penthouse · 183&nbsp;m²</p>
         <p class="night"><span class="from">from</span> IDR 2.800.000 <span class="per">/ night</span> <span class="sub">(≈ US$170)</span></p>
         <ul class="feats"><li>private rooftop jacuzzi</li><li>2 bedrooms, 2 bathrooms</li><li>2 balconies</li><li>full kitchen</li><li>sunset views</li><li>shared pool</li></ul>
@@ -216,12 +216,12 @@ footer{padding:28px 16px 90px}
           <div><span class="lbl">Weekly</span><span class="amt">IDR 17.5M</span><span class="sub">(≈ US$1,050)</span></div>
           <div><span class="lbl">Monthly</span><span class="amt">IDR 55M</span><span class="sub">(≈ US$3,350)</span></div>
         </div>
-        <div class="acts"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20The%20Penthouse.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp</a></div>
+        <div class="acts"><a class="btn" href="https://us2.cloudbeds.com/en/reservation/o2FIu3?currency=idr">Book now</a><a class="btn alt" href="https://wa.me/6281215627299?text=Hi%20Onyx%2C%20I%27d%20like%20to%20book%20Penthouse.%20Check-in%3A%20%E2%80%A6%20Check-out%3A%20%E2%80%A6%20Guests%3A%20%E2%80%A6">WhatsApp</a></div>
         <p class="more"><a href="/rooms/401/">All photos and details →</a></p>
       </div>
     </article>
     <article class="unit" id="u201">
-      <a class="gallery" href="/rooms/201/" aria-label="All photos of Grand Suite"><img src="img/201.jpg" alt="Grand Suite" loading="lazy"><img src="img/201b.jpg" alt="Grand Suite" loading="lazy"><span class="ph">All photos</span></a>
+      <a class="gallery" href="/rooms/201/" aria-label="All photos of Grand Suite"><img src="img/201-c.jpg" alt="Grand Suite" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/201/" style="color:inherit;text-decoration:none">Grand Suite</a></h3>
         <p class="meta">1-bed apartment · 83&nbsp;m²</p>
@@ -236,7 +236,7 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u203">
-      <a class="gallery" href="/rooms/203/" aria-label="All photos of Sunset Suite"><img src="img/203.jpg" alt="Sunset Suite" loading="lazy"><img src="img/203b.jpg" alt="Sunset Suite" loading="lazy"><span class="ph">All photos</span></a>
+      <a class="gallery" href="/rooms/203/" aria-label="All photos of Sunset Suite"><img src="img/203.jpg" alt="Sunset Suite" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/203/" style="color:inherit;text-decoration:none">Sunset Suite</a></h3>
         <p class="meta">Suite with balcony and full kitchen · 54.5&nbsp;m²</p>
@@ -251,7 +251,7 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u202">
-      <a class="gallery" href="/rooms/202/" aria-label="All photos of Deluxe Suite"><img src="img/202.jpg" alt="Deluxe Suite" loading="lazy"><span class="ph">All photos</span></a>
+      <a class="gallery" href="/rooms/202/" aria-label="All photos of Deluxe Suite"><img src="img/202-c.jpg" alt="Deluxe Suite" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/202/" style="color:inherit;text-decoration:none">Deluxe Suite</a></h3>
         <p class="meta">Suite with kitchenette · 35&nbsp;m²</p>
@@ -266,7 +266,7 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u302">
-      <a class="gallery" href="/rooms/302/" aria-label="All photos of Deluxe Suite"><img src="img/302.jpg" alt="Deluxe Suite" loading="lazy"><span class="ph">All photos</span></a>
+      <a class="gallery" href="/rooms/302/" aria-label="All photos of Deluxe Suite"><img src="img/302-c.jpg" alt="Deluxe Suite" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/302/" style="color:inherit;text-decoration:none">Deluxe Suite</a></h3>
         <p class="meta">Suite with kitchenette · 35&nbsp;m²</p>
@@ -281,7 +281,7 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u101">
-      <a class="gallery" href="/rooms/101/" aria-label="All photos of Standard Suite"><img src="img/101.jpg" alt="Standard Suite" loading="lazy"><span class="ph">All photos</span></a>
+      <a class="gallery" href="/rooms/101/" aria-label="All photos of Standard Suite"><img src="img/101-c.jpg" alt="Standard Suite" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/101/" style="color:inherit;text-decoration:none">Standard Suite</a></h3>
         <p class="meta">Ground-floor suite · 31&nbsp;m²</p>
@@ -296,7 +296,7 @@ footer{padding:28px 16px 90px}
       </div>
     </article>
     <article class="unit" id="u102">
-      <a class="gallery" href="/rooms/102/" aria-label="All photos of Standard Suite"><img src="img/102.jpg" alt="Standard Suite" loading="lazy"><span class="ph">All photos</span></a>
+      <a class="gallery" href="/rooms/102/" aria-label="All photos of Standard Suite"><img src="img/102-c.jpg" alt="Standard Suite" loading="lazy"><span class="ph">All photos</span></a>
       <div class="body">
         <h3><a href="/rooms/102/" style="color:inherit;text-decoration:none">Standard Suite</a></h3>
         <p class="meta">Ground-floor suite · 31&nbsp;m²</p>
