@@ -12,6 +12,12 @@ h2{font-size:24px;margin:36px 0 10px}
 .gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:200px;gap:8px;margin:18px 0}
 .gal img{width:100%;height:100%;object-fit:cover;border-radius:12px}
 .gal img:first-child{grid-row:span 2}
+.gal img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:1000;background:#000;display:flex;align-items:center;justify-content:center}
+.lb img{max-width:100vw;max-height:88vh;object-fit:contain;user-select:none}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:30px;width:52px;height:52px;border-radius:50%;cursor:pointer;line-height:52px;padding:0}
+.lb .x{top:14px;right:14px;font-size:26px}.lb .p{left:12px;top:50%;transform:translateY(-50%)}.lb .n{right:12px;top:50%;transform:translateY(-50%)}
+.lb .c{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#ddd;font-size:14px}
 .prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
 .prices div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .lbl{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
